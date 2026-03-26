@@ -1,0 +1,17 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://projet-web-movies.org/movie/directedBy> owl:equivalentProperty <http://www.wikidata.org/prop/direct/P161>,
+        <http://www.wikidata.org/prop/direct/P162>,
+        <http://www.wikidata.org/prop/direct/P170>,
+        <http://www.wikidata.org/prop/direct/P57>,
+        <http://www.wikidata.org/prop/direct/P58> .
+
+<http://projet-web-movies.org/movie/hasActor> owl:equivalentProperty <http://www.wikidata.org/prop/direct/P161>,
+        <http://www.wikidata.org/prop/direct/P725> .
+
+<http://projet-web-movies.org/movie/hasGenre> owl:equivalentProperty <http://www.wikidata.org/prop/direct/P136>,
+        <http://www.wikidata.org/prop/direct/P31> .
+
+rdf:type owl:equivalentProperty <http://www.wikidata.org/prop/direct/P31> .
+
