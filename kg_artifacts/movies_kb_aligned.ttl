@@ -1,0 +1,293 @@
+@prefix ex: <http://projet-web-movies.org/movie/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:12AngryMen a ex:Movie ;
+    ex:directedBy ex:SidneyLumet ;
+    ex:hasActor ex:HenryFonda,
+        ex:LeeCobb ;
+    ex:hasGenre ex:Drama ;
+    ex:releaseYear 1957 .
+
+ex:Avatar a ex:Movie ;
+    ex:directedBy ex:JamesCameron ;
+    ex:hasActor ex:SamWorthington,
+        ex:ZoeSaldana ;
+    ex:hasGenre ex:SciFi ;
+    ex:releaseYear 2009 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q29387886> .
+
+ex:Dunkirk a ex:Movie ;
+    ex:directedBy ex:ChristopherNolan ;
+    ex:hasActor ex:CillianMurphy,
+        ex:TomHardy ;
+    ex:hasGenre ex:War ;
+    ex:releaseYear 2017 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q21935651> .
+
+ex:FightClub a ex:Movie ;
+    ex:directedBy ex:DavidFincher ;
+    ex:hasActor ex:BradPitt,
+        ex:EdwardNorton ;
+    ex:hasGenre ex:Drama ;
+    ex:releaseYear 1999 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q190050> .
+
+ex:Gladiator a ex:Movie ;
+    ex:directedBy ex:RidleyScott ;
+    ex:hasActor ex:JoaquinPhoenix,
+        ex:RussellCrowe ;
+    ex:hasGenre ex:Action ;
+    ex:releaseYear 2000 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q3282906> .
+
+ex:Inception a ex:Movie ;
+    ex:directedBy ex:ChristopherNolan ;
+    ex:hasActor ex:JosephGordonLevitt,
+        ex:LeonardoDiCaprio ;
+    ex:hasGenre ex:SciFi ;
+    ex:releaseYear 2010 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q3406134> .
+
+ex:Interstellar a ex:Movie ;
+    ex:directedBy ex:ChristopherNolan ;
+    ex:hasActor ex:AnneHathaway,
+        ex:MatthewMcConaughey ;
+    ex:hasGenre ex:SciFi ;
+    ex:releaseYear 2014 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q41872> .
+
+ex:Parasite a ex:Movie ;
+    ex:directedBy ex:BongJoonHo ;
+    ex:hasActor ex:LeeSunKyun,
+        ex:SongKangHo ;
+    ex:hasGenre ex:Thriller ;
+    ex:releaseYear 2019 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q2813832> .
+
+ex:PulpFiction a ex:Movie ;
+    ex:directedBy ex:QuentinTarantino ;
+    ex:hasActor ex:JohnTravolta,
+        ex:SamuelLJackson ;
+    ex:hasGenre ex:Crime ;
+    ex:releaseYear 1994 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q104123> .
+
+ex:TheDarkKnight a ex:Movie ;
+    ex:directedBy ex:ChristopherNolan ;
+    ex:hasActor ex:ChristianBale,
+        ex:HeathLedger ;
+    ex:hasGenre ex:Action ;
+    ex:releaseYear 2008 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q2695156> .
+
+ex:TheGodFather a ex:Movie ;
+    ex:directedBy ex:FrancisFordCoppola ;
+    ex:hasActor ex:AlPacino,
+        ex:MarlonBrando ;
+    ex:hasGenre ex:Crime ;
+    ex:releaseYear 1972 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q99960893> .
+
+ex:TheMartian a ex:Movie ;
+    ex:directedBy ex:RidleyScott ;
+    ex:hasActor ex:MattDamon ;
+    ex:hasGenre ex:SciFi ;
+    ex:releaseYear 2015 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q18547944> .
+
+ex:TheRevenant a ex:Movie ;
+    ex:directedBy ex:AlejandroInarritu ;
+    ex:hasActor ex:LeonardoDiCaprio ;
+    ex:hasGenre ex:Drama ;
+    ex:releaseYear 2015 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q18002795> .
+
+ex:Titanic a ex:Movie ;
+    ex:directedBy ex:JamesCameron ;
+    ex:hasActor ex:KateWinslet,
+        ex:LeonardoDiCaprio ;
+    ex:hasGenre ex:Romance ;
+    ex:releaseYear 1997 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q25173> .
+
+ex:ToyStory a ex:Movie ;
+    ex:directedBy ex:JohnLasseter ;
+    ex:hasActor ex:TimAllen,
+        ex:TomHanks ;
+    ex:hasGenre ex:Animation ;
+    ex:releaseYear 1995 ;
+    owl:sameAs <http://www.wikidata.org/entity/Q171048> .
+
+ex:AlPacino a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q41163> .
+
+ex:AlejandroInarritu a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q55215> .
+
+ex:Animation a ex:Genre ;
+    owl:sameAs <http://www.wikidata.org/entity/Q202866> .
+
+ex:AnneHathaway a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q36301> .
+
+ex:BongJoonHo a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q495980> .
+
+ex:BradPitt a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q35332> .
+
+ex:ChristianBale a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q45772> .
+
+ex:CillianMurphy a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q202589> .
+
+ex:DavidFincher a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q184903> .
+
+ex:EdwardNorton a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q110179736> .
+
+ex:FrancisFordCoppola a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q56094> .
+
+ex:HeathLedger a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q40572> .
+
+ex:HenryFonda a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q19155> .
+
+ex:JoaquinPhoenix a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q185140> .
+
+ex:JohnLasseter a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q269214> .
+
+ex:JohnTravolta a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q80938> .
+
+ex:JosephGordonLevitt a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q177311> .
+
+ex:KateWinslet a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q202765> .
+
+ex:LeeCobb a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q348351> .
+
+ex:LeeSunKyun a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q489681> .
+
+ex:MarlonBrando a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q34012> .
+
+ex:MattDamon a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q175535> .
+
+ex:MatthewMcConaughey a ex:Person ;
+    ex:profession "Actor" .
+
+ex:QuentinTarantino a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q3772> .
+
+ex:Romance a ex:Genre ;
+    owl:sameAs <http://www.wikidata.org/entity/Q1054574> .
+
+ex:RussellCrowe a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q129817> .
+
+ex:SamWorthington a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q82085> .
+
+ex:SamuelLJackson a ex:Person ;
+    ex:profession "Actor" .
+
+ex:SidneyLumet a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q51559> .
+
+ex:SongKangHo a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q484400> .
+
+ex:Thriller a ex:Genre ;
+    owl:sameAs <http://www.wikidata.org/entity/Q44320> .
+
+ex:TimAllen a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q208408> .
+
+ex:TomHanks a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q2263> .
+
+ex:TomHardy a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q208026> .
+
+ex:War a ex:Genre ;
+    owl:sameAs <http://www.wikidata.org/entity/Q1648786> .
+
+ex:ZoeSaldana a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q190162> .
+
+ex:Action a ex:Genre ;
+    owl:sameAs <http://www.wikidata.org/entity/Q188473> .
+
+ex:Crime a ex:Genre ;
+    owl:sameAs <http://www.wikidata.org/entity/Q83267> .
+
+ex:JamesCameron a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q42574> .
+
+ex:RidleyScott a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q56005> .
+
+ex:Drama a ex:Genre ;
+    owl:sameAs <http://www.wikidata.org/entity/Q130232> .
+
+ex:LeonardoDiCaprio a ex:Person ;
+    ex:profession "Actor" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q38111> .
+
+ex:ChristopherNolan a ex:Person ;
+    ex:profession "Director" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q25191> .
+
+ex:SciFi a ex:Genre ;
+    owl:sameAs <http://www.wikidata.org/entity/Q24925> .
+
+ex:Genre owl:sameAs <http://www.wikidata.org/entity/Q188451> .
+
+ex:Movie owl:sameAs <http://www.wikidata.org/entity/Q11424> .
+
+ex:Person owl:sameAs <http://www.wikidata.org/entity/Q5> .
+

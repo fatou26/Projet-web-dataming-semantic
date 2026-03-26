@@ -1,0 +1,230 @@
+@prefix ex: <http://projet-web-movies.org/movie/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:12AngryMen a ex:Movie ;
+    ex:directedBy ex:SidneyLumet ;
+    ex:hasActor ex:HenryFonda,
+        ex:LeeCobb ;
+    ex:hasGenre ex:Drama ;
+    ex:releaseYear 1957 .
+
+ex:Avatar a ex:Movie ;
+    ex:directedBy ex:JamesCameron ;
+    ex:hasActor ex:SamWorthington,
+        ex:ZoeSaldana ;
+    ex:hasGenre ex:SciFi ;
+    ex:releaseYear 2009 .
+
+ex:Dunkirk a ex:Movie ;
+    ex:directedBy ex:ChristopherNolan ;
+    ex:hasActor ex:CillianMurphy,
+        ex:TomHardy ;
+    ex:hasGenre ex:War ;
+    ex:releaseYear 2017 .
+
+ex:FightClub a ex:Movie ;
+    ex:directedBy ex:DavidFincher ;
+    ex:hasActor ex:BradPitt,
+        ex:EdwardNorton ;
+    ex:hasGenre ex:Drama ;
+    ex:releaseYear 1999 .
+
+ex:Gladiator a ex:Movie ;
+    ex:directedBy ex:RidleyScott ;
+    ex:hasActor ex:JoaquinPhoenix,
+        ex:RussellCrowe ;
+    ex:hasGenre ex:Action ;
+    ex:releaseYear 2000 .
+
+ex:Inception a ex:Movie ;
+    ex:directedBy ex:ChristopherNolan ;
+    ex:hasActor ex:JosephGordonLevitt,
+        ex:LeonardoDiCaprio ;
+    ex:hasGenre ex:SciFi ;
+    ex:releaseYear 2010 .
+
+ex:Interstellar a ex:Movie ;
+    ex:directedBy ex:ChristopherNolan ;
+    ex:hasActor ex:AnneHathaway,
+        ex:MatthewMcConaughey ;
+    ex:hasGenre ex:SciFi ;
+    ex:releaseYear 2014 .
+
+ex:Parasite a ex:Movie ;
+    ex:directedBy ex:BongJoonHo ;
+    ex:hasActor ex:LeeSunKyun,
+        ex:SongKangHo ;
+    ex:hasGenre ex:Thriller ;
+    ex:releaseYear 2019 .
+
+ex:PulpFiction a ex:Movie ;
+    ex:directedBy ex:QuentinTarantino ;
+    ex:hasActor ex:JohnTravolta,
+        ex:SamuelLJackson ;
+    ex:hasGenre ex:Crime ;
+    ex:releaseYear 1994 .
+
+ex:TheDarkKnight a ex:Movie ;
+    ex:directedBy ex:ChristopherNolan ;
+    ex:hasActor ex:ChristianBale,
+        ex:HeathLedger ;
+    ex:hasGenre ex:Action ;
+    ex:releaseYear 2008 .
+
+ex:TheGodFather a ex:Movie ;
+    ex:directedBy ex:FrancisFordCoppola ;
+    ex:hasActor ex:AlPacino,
+        ex:MarlonBrando ;
+    ex:hasGenre ex:Crime ;
+    ex:releaseYear 1972 .
+
+ex:TheMartian a ex:Movie ;
+    ex:directedBy ex:RidleyScott ;
+    ex:hasActor ex:MattDamon ;
+    ex:hasGenre ex:SciFi ;
+    ex:releaseYear 2015 .
+
+ex:TheRevenant a ex:Movie ;
+    ex:directedBy ex:AlejandroInarritu ;
+    ex:hasActor ex:LeonardoDiCaprio ;
+    ex:hasGenre ex:Drama ;
+    ex:releaseYear 2015 .
+
+ex:Titanic a ex:Movie ;
+    ex:directedBy ex:JamesCameron ;
+    ex:hasActor ex:KateWinslet,
+        ex:LeonardoDiCaprio ;
+    ex:hasGenre ex:Romance ;
+    ex:releaseYear 1997 .
+
+ex:ToyStory a ex:Movie ;
+    ex:directedBy ex:JohnLasseter ;
+    ex:hasActor ex:TimAllen,
+        ex:TomHanks ;
+    ex:hasGenre ex:Animation ;
+    ex:releaseYear 1995 .
+
+ex:AlPacino a ex:Person ;
+    ex:profession "Actor" .
+
+ex:AlejandroInarritu a ex:Person ;
+    ex:profession "Director" .
+
+ex:Animation a ex:Genre .
+
+ex:AnneHathaway a ex:Person ;
+    ex:profession "Actor" .
+
+ex:BongJoonHo a ex:Person ;
+    ex:profession "Director" .
+
+ex:BradPitt a ex:Person ;
+    ex:profession "Actor" .
+
+ex:ChristianBale a ex:Person ;
+    ex:profession "Actor" .
+
+ex:CillianMurphy a ex:Person ;
+    ex:profession "Actor" .
+
+ex:DavidFincher a ex:Person ;
+    ex:profession "Director" .
+
+ex:EdwardNorton a ex:Person ;
+    ex:profession "Actor" .
+
+ex:FrancisFordCoppola a ex:Person ;
+    ex:profession "Director" .
+
+ex:HeathLedger a ex:Person ;
+    ex:profession "Actor" .
+
+ex:HenryFonda a ex:Person ;
+    ex:profession "Actor" .
+
+ex:JoaquinPhoenix a ex:Person ;
+    ex:profession "Actor" .
+
+ex:JohnLasseter a ex:Person ;
+    ex:profession "Director" .
+
+ex:JohnTravolta a ex:Person ;
+    ex:profession "Actor" .
+
+ex:JosephGordonLevitt a ex:Person ;
+    ex:profession "Actor" .
+
+ex:KateWinslet a ex:Person ;
+    ex:profession "Actor" .
+
+ex:LeeCobb a ex:Person ;
+    ex:profession "Actor" .
+
+ex:LeeSunKyun a ex:Person ;
+    ex:profession "Actor" .
+
+ex:MarlonBrando a ex:Person ;
+    ex:profession "Actor" .
+
+ex:MattDamon a ex:Person ;
+    ex:profession "Actor" .
+
+ex:MatthewMcConaughey a ex:Person ;
+    ex:profession "Actor" .
+
+ex:QuentinTarantino a ex:Person ;
+    ex:profession "Director" .
+
+ex:Romance a ex:Genre .
+
+ex:RussellCrowe a ex:Person ;
+    ex:profession "Actor" .
+
+ex:SamWorthington a ex:Person ;
+    ex:profession "Actor" .
+
+ex:SamuelLJackson a ex:Person ;
+    ex:profession "Actor" .
+
+ex:SidneyLumet a ex:Person ;
+    ex:profession "Director" .
+
+ex:SongKangHo a ex:Person ;
+    ex:profession "Actor" .
+
+ex:Thriller a ex:Genre .
+
+ex:TimAllen a ex:Person ;
+    ex:profession "Actor" .
+
+ex:TomHanks a ex:Person ;
+    ex:profession "Actor" .
+
+ex:TomHardy a ex:Person ;
+    ex:profession "Actor" .
+
+ex:War a ex:Genre .
+
+ex:ZoeSaldana a ex:Person ;
+    ex:profession "Actor" .
+
+ex:Action a ex:Genre .
+
+ex:Crime a ex:Genre .
+
+ex:JamesCameron a ex:Person ;
+    ex:profession "Director" .
+
+ex:RidleyScott a ex:Person ;
+    ex:profession "Director" .
+
+ex:Drama a ex:Genre .
+
+ex:LeonardoDiCaprio a ex:Person ;
+    ex:profession "Actor" .
+
+ex:ChristopherNolan a ex:Person ;
+    ex:profession "Director" .
+
+ex:SciFi a ex:Genre .
+
