@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+rdflib
+trafilatura
+spacy
+requests
+SPARQLWrapper
+owlready2
+pykeen
+torch
