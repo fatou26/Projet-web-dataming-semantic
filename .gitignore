@@ -1,0 +1,4 @@
+models/results_transe/training_triples/
+models/results_complex/training_triples/
+models/**/metadata.json
+src/reason/tes.py
