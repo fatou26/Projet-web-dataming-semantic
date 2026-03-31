@@ -48,8 +48,6 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_trf
 ```
 
-For TD4, install **Ollama** locally and run a small model such as:
-
 ```bash
 ollama run gemma:2b
 ```
@@ -105,7 +103,7 @@ python src/reason/reasoning.py
 ### TD4 - Augmented Generation (RAG) with RDF/SPARQL and a Local Small LLM
 
 ```bash
-python src/rag/rag_cli.py --graph kg_artifacts/movies_kb_expanded.nt --question "Who acted in Inception?"
+python src/rag/rag.py --graph kg_artifacts/movies_kb_expanded.nt --question "Who acted in Inception?"
 ```
 
 ---

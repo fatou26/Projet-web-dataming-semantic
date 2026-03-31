@@ -80,3 +80,7 @@ for movie in onto_movies.Movie.instances():
 
 movie_classics = [ind.name for ind in onto_movies.ClassicMovie.instances()]
 print("ClassicMovie instances :", movie_classics[:20])
+
+# This program applies SWRL-like reasoning on two ontologies: a family ontology and a movie ontology.
+# In the family ontology, it identifies individuals who are older than 60 and classifies them as oldPerson. 
+# In the movie ontology, it identifies movies released before the year 2000 and classifies them as ClassicMovie.

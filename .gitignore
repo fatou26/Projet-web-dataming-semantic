@@ -2,3 +2,4 @@ models/results_transe/training_triples/
 models/results_complex/training_triples/
 models/**/metadata.json
 src/reason/tes.py
+src/rag/rag_cli.py

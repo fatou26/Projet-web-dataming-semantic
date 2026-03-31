@@ -4,11 +4,10 @@ Phase 1 : Knowledge Graph Embedding
 In this phase, we prepare cleaned train/valid/test splits for knowledge graph embedding.
 We must implement two embedding models
 """
+# Load libraries
 from __future__ import annotations
-
 import argparse
 from pathlib import Path
-
 import pandas as pd
 from rdflib import Graph, URIRef
 from sklearn.model_selection import train_test_split
@@ -33,7 +32,9 @@ df = pd.DataFrame(triples, columns=["subject", "predicate", "object"]).drop_dupl
 print(df)
 print(f"Triples after cleaning : {len(df)}")
 print(f"Relations : {len(relations)} | Entities : {len(entities)}")
-
+# Here we verify if the graph has the correct format (subject, predicate, object) and if there are any duplicates.
+#  We also count the number of unique relations and entities in the graph.
+#  This is important to ensure that the data is clean and ready for the next steps of splitting and embedding.
 
 # --- Split train / valid / test ---
 

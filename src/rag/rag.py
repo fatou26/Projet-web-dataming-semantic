@@ -6,26 +6,26 @@ For the last lab, we build a LLM chatbot augmented by he knowledge base. For thi
 - converts a small set of natural-language questions into SPARQL templates
 - optional Ollama-based self-repair for unsupported/failing queries
 """
+# Load libraries
 from __future__ import annotations
-
 import argparse
 import json
 import re
 from pathlib import Path
-
 import requests
 from rdflib import Graph
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
-DEFAULT_MODEL = "gemma:2b"
+# configuration of the Ollama LLM
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 DEFAULT_MODEL = "gemma:2b"
 CODE_BLOCK_RE = re.compile(r"```(?:sparql)?\s*(.*?)```", re.IGNORECASE | re.DOTALL)
+# extract SPARQL code blocks from the LLM response
 
 
-# --- Fonctions utilitaires ---
-
+# A function to query the Ollama LLM with a given prompt and return the response. We handle connection 
+# errors and other request exceptions to provide informative messages if Ollama is not available or if there are 
+# issues with the request.
 def ask_ollama(prompt, model=DEFAULT_MODEL):
     payload = {"model": model, "prompt": prompt, "stream": False}
     try:
@@ -50,7 +50,7 @@ def normalize_entity(text):
     text = text.replace(" ", "_")
     return text
 
-
+# extract SPARQL code blocks from the LLM response
 def rule_based_nl_to_sparql(question):
     q = question.lower().strip()
     if "actors" in q or "acted in" in q:
@@ -89,15 +89,13 @@ def rule_based_nl_to_sparql(question):
     return None
 
 
-# --- Chargement du graphe ---
-
+# load the graph
 g = Graph()
 g.parse("kg_artifacts/movies_kb_expanded.nt", format="nt")
-print(f"Graphe chargé : {len(g)} triplets")
+print(f"Graph loaded : {len(g)} triples")
 
 
-# --- Construction du schema summary ---
-
+# --- build schema summary ---
 predicates = sorted({str(p) for _, p, _ in g})[:50]
 classes = sorted({str(o) for _, p, o in g if str(p) == "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"})[:40]
 samples = [(str(s), str(p), str(o)) for s, p, o in list(g)[:20]]
@@ -107,19 +105,18 @@ cls_lines = "\n".join(f"- {c}" for c in classes)
 sample_lines = "\n".join(f"- {s} {p} {o}" for s, p, o in samples)
 
 schema_summary = f"""
-# Prédicats
+# Predicates
 {pred_lines}
 
 # Classes
 {cls_lines}
 
-# Triplets exemples
+# Triplets examples
 {sample_lines}
 """.strip()
 
 
-# --- Boucle de questions ---
-
+# --- Question loop
 while True:
     question = input("\nQuestion (ou 'quit') : ").strip()
     if question.lower() == "quit":
@@ -186,3 +183,10 @@ ERROR:
             print(f"... ({len(answers)} résultats au total)")
     else:
         print("[Aucun résultat]")
+
+
+# In this code, we implement a simple Retrieval-Augmented Generation (RAG) system that allows users to ask 
+# natural language questions about a movie knowledge graph. The system attempts to convert the natural language
+#  question into a SPARQL query using a rule-based approach and, if that fails, it uses an LLM (via Ollama) to 
+# generate or repair the SPARQL query. The generated SPARQL query is then executed against the RDF graph, and the 
+# results are displayed to the user.

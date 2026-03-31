@@ -7,8 +7,8 @@ We did that in four steps :
 3- Predicate alignment
 4- KB expansion with SPARQL queries
 """
+# Load libraries
 from __future__ import annotations
-
 import argparse
 import csv
 import re
@@ -22,6 +22,7 @@ from rdflib import Graph, Literal, Namespace, RDF, URIRef
 from rdflib.namespace import OWL, RDFS, XSD
 from SPARQLWrapper import JSON, SPARQLWrapper
 
+# We define here the namespaces and constants
 EX = Namespace("http://projet-web-movies.org/movie/")
 WD = Namespace("http://www.wikidata.org/entity/")
 SPARQL_URL = "https://query.wikidata.org/sparql"
@@ -29,21 +30,22 @@ USER_AGENT = "MovieProjectESILV/1.0 (https://github.com/fatou26/Projet-web-datam
 
 YEAR_RE = re.compile(r"\b(1[89]\d\d|20\d\d)\b")
 
-
+# A function to  clean entity names 
 def clean_uri(text):
     text = str(text).replace(" ", "_").replace(",", "").replace("(", "").replace(")", "")
     return urllib.parse.quote(text, safe="_-.")
 
-
+# A function to compute string similarity for entity alignment
 def similarity(a, b):
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
 
-# --- Construction du graphe initial ---
 
+# load the extracted entities and relations from the previous phase (the output of the information extraction)
 df_ent = pd.read_csv('data/intermediate/extracted_knowledge.csv')
 df_rel = pd.read_csv('data/intermediate/extracted_relations.csv')
 
+# -Build the intial graph with the extracted entities and relations, and save it in Turtle format
 g = Graph()
 g.bind("ex", EX)
 g.bind("owl", OWL)
@@ -81,14 +83,19 @@ for source, group in df_rel.groupby("source"):
             g.add((movie_uri, hasActor, person_uri))
             g.add((movie_uri, relatedTo, person_uri))
 
+# We save the initial graph in Turtle format. This file will be used in the next steps for alignment and expansion.
 g.serialize("kg_artifacts/movies_kb.ttl", format="turtle")
 print("Fichier movies_kb.ttl généré avec succès.")
 
 
-# --- Alignement des entités ---
+# The third phase, we aligned entities with Wikidata 
+
+# we create a fonction to check if Wikidata is reachable, to avoid making unnecessary requests 
+# if the service is down. Because we will make many requests to Wikidata for entity and predicate alignment, 
+# we want to ensure that the service is available before proceeding. If Wikidata is unreachable, 
+# we skip the alignment and expansion steps and save the initial KB as the final output.
 
 def _wikidata_available():
-    """Quick connectivity check before running network-heavy loops."""
     try:
         r = requests.get(
             "https://www.wikidata.org/w/api.php",
@@ -100,6 +107,9 @@ def _wikidata_available():
     except Exception:
         return False
 
+
+# This function search for an entity name in Wikidata and return the best matching QID along with
+#  a confidence score based on string similarity.
 
 def search_wikidata(entity_name):
     url = "https://www.wikidata.org/w/api.php"
@@ -160,7 +170,7 @@ with open("data/intermediate/alignment_table.csv", "w", encoding="utf-8", newlin
 print("Fichier alignment_table.csv généré avec succès.")
 
 
-# --- Alignement des prédicats ---
+# The fourth phase, we aligned predicates with Wikidata and expand the KB from Wikidata via SPARQL queries.
 
 def query_wikidata_predicates(subj_qid, obj_qid):
     query = f"""
@@ -202,7 +212,7 @@ alignment_g.serialize("kg_artifacts/predicate_alignment.ttl", format="turtle")
 print("Fichier predicate_alignment.ttl généré avec succès.")
 
 
-# --- Expansion du graphe ---
+# graph expansion with SPARQL queries to Wikidata
 
 def expand_entity(qid):
     sparql = SPARQLWrapper(SPARQL_URL)
@@ -266,3 +276,11 @@ for s, p, o in g:
     relations.add(p)
 
 print("Nombre de relations :", len(relations))
+
+# This script build a graph about movies from the extracted entities and relations (csv files), align it with Wikidata thanks to the API of Wikidata, 
+# and expand it from Wikidata (director, genre, release date, etc.). The final expanded KB is saved in Triples 
+# format, and contains 1000+ triples about movies.
+# This script also generates intermediate files like the initial KB (movies_kb.ttl), the aligned KB 
+# (movies_kb_aligned.ttl), the predicate alignment (predicate_alignment.ttl), and the alignment table 
+# (alignment_table.csv) that contains the mapping between our entities and Wikidata QIDs along with confidence scores.
+# And the final expanded kb (movies_kb_expanded.nt) will be used in the next phase for knowledge graph embedding.

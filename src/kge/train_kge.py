@@ -1,7 +1,8 @@
 """TD3 - Knowledge reasoning with rule and Knowledge Graph Embedding (KGE)
 Train and evaluate two KGE models with PyKEEN."""
-from __future__ import annotations
 
+# Load libraries
+from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
@@ -12,7 +13,7 @@ from pykeen.pipeline import pipeline
 from pykeen.triples import TriplesFactory
 
 # --- load data---
-
+# configuration of both models 
 training = TriplesFactory.from_path("data/intermediate/train.txt")
 validation = TriplesFactory.from_path(
     "data/intermediate/valid.txt",
@@ -40,7 +41,11 @@ common = dict(
 )
 
 transe = pipeline(model="TransE", **common)
+# Transe is the model who learn subject and relation give the object in the vector space.
 complex_ = pipeline(model="ComplEx", **common)
+# Complex is in a complex vector space, subjects, relations and objects are represented in the way real and imaginary 
+# parts, which allows it to capture more complex patterns in the data, such as asymmetric relations.
+
 
 transe.save_to_directory("models/results_transe")
 complex_.save_to_directory("models/results_complex")
@@ -57,6 +62,8 @@ def extract_main_metrics(results):
         "Hits@10": metric_results.get("both.realistic.hits_at_10", 0.0),
     }
 
+# Thanks to that, we extract the main metrics (MRR, Hits@1, Hits@3, Hits@10) for both models and print 
+# them in a readable format. We will see the quality of the links predicted by both models
 transe_metrics = extract_main_metrics(transe)
 complex_metrics = extract_main_metrics(complex_)
 
@@ -65,7 +72,6 @@ print("ComplEx :", complex_metrics)
 
 
 # --- visuals ---
-
 labels = list(transe_metrics.keys())
 x = np.arange(len(labels))
 width = 0.35
@@ -96,3 +102,11 @@ summary = {"TransE": transe_metrics, "ComplEx": complex_metrics}
 with open("models/metrics_summary.json", "w", encoding="utf-8") as f:
     json.dump(summary, f, indent=2)
 print("Metrics saved : models/metrics_summary.json")
+
+# We use TriplesFactory from PyKEEN to load the train, validation, and test splits of our knowledge graph. Because the 
+# train/valid/test splits were created with the same entities and relations, we ensure that the entity_to_id and 
+# relation_to_id mappings are consistent across all splits by passing the mappings from the training set to the 
+# validation and testing sets.
+
+# The goal is to know whih model is better for the link prediction task on our KB, and to have a visual 
+# comparison of the performance of both models.   
