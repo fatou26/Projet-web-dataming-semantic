@@ -107,7 +107,7 @@ python src/rag/rag.py --graph kg_artifacts/movies_kb_expanded.nt --question "Who
 
 ---
 
-## Hardware requirements
+## You need to have : 
 
 - Internet access for Wikidata alignment and expansion
 - Optional GPU for KGE training
