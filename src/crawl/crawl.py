@@ -4,16 +4,16 @@ Phase 1 : Web Crawling and Cleaning
 We choose the domain of movies for the project. 
 """
 
+# Load libraries
 from __future__ import annotations
-
 import argparse
 import json
 import time
 from pathlib import Path
 from typing import Iterable
-
 import trafilatura
 
+# The urls find on the web whose have information about movies
 seed_urls = [
     "https://en.wikipedia.org/wiki/Inception",
     "https://en.wikipedia.org/wiki/The_Godfather",
@@ -38,6 +38,9 @@ seed_urls = [
     "https://www.indiewire.com/criticism/movies/forbidden-fruits-review-1235186119/"
 ]
 
+
+# Function to fetch and clean the web pages, and save the results in a JSONL file, 
+# We take care to filter out pages that are too short (less than 500 words) to ensure we have enough content for the next phase of information extraction.
 def fetch_pages(urls, min_words=500):
     records = []
     for url in urls:
@@ -61,3 +64,6 @@ def fetch_pages(urls, min_words=500):
             f.write(json.dumps(record) + '\n')
 
 
+# This code download the website of the urls, extract the text content via trafilatura, and save it in a JSONL file.
+#  We also print the success or ignore status of each URL based on the word count.
+# The output crawler_output.jsonl will be used in the next phase for information extraction.
