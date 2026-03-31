@@ -15,8 +15,7 @@ Ce dêpot rassemble l'ensemble des fichiers réalisés durant le projet inclus d
 │       ├── extracted_relations.csv
 │       ├── train.txt
 │       ├── valid.txt
-│       ├── test.txt
-│       └── kge_performance_comparison.png
+│       └── test.txt
 ├── kg_artifacts/
 │   ├── movies_kb.ttl
 │   ├── movies_kb_aligned.ttl
